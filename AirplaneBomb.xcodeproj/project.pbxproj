@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA1140D917FDEB80003B7E48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140D817FDEB80003B7E48 /* Foundation.framework */; };
+		DA1140DB17FDEB80003B7E48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140DA17FDEB80003B7E48 /* CoreGraphics.framework */; };
+		DA1140DD17FDEB80003B7E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140DC17FDEB80003B7E48 /* UIKit.framework */; };
+		DA1140DF17FDEB80003B7E48 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140DE17FDEB80003B7E48 /* SpriteKit.framework */; };
+		DA1140E517FDEB80003B7E48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA1140E317FDEB80003B7E48 /* InfoPlist.strings */; };
+		DA1140E717FDEB80003B7E48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140E617FDEB80003B7E48 /* main.m */; };
+		DA1140EB17FDEB80003B7E48 /* GMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140EA17FDEB80003B7E48 /* GMSAppDelegate.m */; };
+		DA1140EE17FDEB80003B7E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1140EC17FDEB80003B7E48 /* Main.storyboard */; };
+		DA1140F117FDEB80003B7E48 /* GMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140F017FDEB80003B7E48 /* GMSViewController.m */; };
+		DA1140F417FDEB80003B7E48 /* GMSMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140F317FDEB80003B7E48 /* GMSMyScene.m */; };
+		DA1140F617FDEB80003B7E48 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1140F517FDEB80003B7E48 /* Spaceship.png */; };
+		DA1140F817FDEB80003B7E48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1140F717FDEB80003B7E48 /* Images.xcassets */; };
+		DA1140FF17FDEB80003B7E48 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140FE17FDEB80003B7E48 /* XCTest.framework */; };
+		DA11410017FDEB80003B7E48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140D817FDEB80003B7E48 /* Foundation.framework */; };
+		DA11410117FDEB80003B7E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140DC17FDEB80003B7E48 /* UIKit.framework */; };
+		DA11410917FDEB80003B7E48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA11410717FDEB80003B7E48 /* InfoPlist.strings */; };
+		DA11410B17FDEB80003B7E48 /* AirplaneBombTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA11410A17FDEB80003B7E48 /* AirplaneBombTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA11410217FDEB80003B7E48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA1140CD17FDEB80003B7E48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA1140D417FDEB80003B7E48;
+			remoteInfo = AirplaneBomb;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA1140D517FDEB80003B7E48 /* AirplaneBomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirplaneBomb.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA1140D817FDEB80003B7E48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA1140DA17FDEB80003B7E48 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA1140DC17FDEB80003B7E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA1140DE17FDEB80003B7E48 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		DA1140E217FDEB80003B7E48 /* AirplaneBomb-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirplaneBomb-Info.plist"; sourceTree = "<group>"; };
+		DA1140E417FDEB80003B7E48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA1140E617FDEB80003B7E48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA1140E817FDEB80003B7E48 /* AirplaneBomb-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirplaneBomb-Prefix.pch"; sourceTree = "<group>"; };
+		DA1140E917FDEB80003B7E48 /* GMSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMSAppDelegate.h; sourceTree = "<group>"; };
+		DA1140EA17FDEB80003B7E48 /* GMSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMSAppDelegate.m; sourceTree = "<group>"; };
+		DA1140ED17FDEB80003B7E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA1140EF17FDEB80003B7E48 /* GMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMSViewController.h; sourceTree = "<group>"; };
+		DA1140F017FDEB80003B7E48 /* GMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMSViewController.m; sourceTree = "<group>"; };
+		DA1140F217FDEB80003B7E48 /* GMSMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMSMyScene.h; sourceTree = "<group>"; };
+		DA1140F317FDEB80003B7E48 /* GMSMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMSMyScene.m; sourceTree = "<group>"; };
+		DA1140F517FDEB80003B7E48 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		DA1140F717FDEB80003B7E48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DA1140FD17FDEB80003B7E48 /* AirplaneBombTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirplaneBombTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA1140FE17FDEB80003B7E48 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DA11410617FDEB80003B7E48 /* AirplaneBombTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirplaneBombTests-Info.plist"; sourceTree = "<group>"; };
+		DA11410817FDEB80003B7E48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA11410A17FDEB80003B7E48 /* AirplaneBombTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirplaneBombTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA1140D217FDEB80003B7E48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA1140DB17FDEB80003B7E48 /* CoreGraphics.framework in Frameworks */,
+				DA1140DD17FDEB80003B7E48 /* UIKit.framework in Frameworks */,
+				DA1140DF17FDEB80003B7E48 /* SpriteKit.framework in Frameworks */,
+				DA1140D917FDEB80003B7E48 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA1140FA17FDEB80003B7E48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA1140FF17FDEB80003B7E48 /* XCTest.framework in Frameworks */,
+				DA11410117FDEB80003B7E48 /* UIKit.framework in Frameworks */,
+				DA11410017FDEB80003B7E48 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA1140CC17FDEB80003B7E48 = {
+			isa = PBXGroup;
+			children = (
+				DA1140E017FDEB80003B7E48 /* AirplaneBomb */,
+				DA11410417FDEB80003B7E48 /* AirplaneBombTests */,
+				DA1140D717FDEB80003B7E48 /* Frameworks */,
+				DA1140D617FDEB80003B7E48 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA1140D617FDEB80003B7E48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA1140D517FDEB80003B7E48 /* AirplaneBomb.app */,
+				DA1140FD17FDEB80003B7E48 /* AirplaneBombTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA1140D717FDEB80003B7E48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA1140D817FDEB80003B7E48 /* Foundation.framework */,
+				DA1140DA17FDEB80003B7E48 /* CoreGraphics.framework */,
+				DA1140DC17FDEB80003B7E48 /* UIKit.framework */,
+				DA1140DE17FDEB80003B7E48 /* SpriteKit.framework */,
+				DA1140FE17FDEB80003B7E48 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA1140E017FDEB80003B7E48 /* AirplaneBomb */ = {
+			isa = PBXGroup;
+			children = (
+				DA1140E917FDEB80003B7E48 /* GMSAppDelegate.h */,
+				DA1140EA17FDEB80003B7E48 /* GMSAppDelegate.m */,
+				DA1140EC17FDEB80003B7E48 /* Main.storyboard */,
+				DA1140EF17FDEB80003B7E48 /* GMSViewController.h */,
+				DA1140F017FDEB80003B7E48 /* GMSViewController.m */,
+				DA1140F217FDEB80003B7E48 /* GMSMyScene.h */,
+				DA1140F317FDEB80003B7E48 /* GMSMyScene.m */,
+				DA1140F517FDEB80003B7E48 /* Spaceship.png */,
+				DA1140F717FDEB80003B7E48 /* Images.xcassets */,
+				DA1140E117FDEB80003B7E48 /* Supporting Files */,
+			);
+			path = AirplaneBomb;
+			sourceTree = "<group>";
+		};
+		DA1140E117FDEB80003B7E48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA1140E217FDEB80003B7E48 /* AirplaneBomb-Info.plist */,
+				DA1140E317FDEB80003B7E48 /* InfoPlist.strings */,
+				DA1140E617FDEB80003B7E48 /* main.m */,
+				DA1140E817FDEB80003B7E48 /* AirplaneBomb-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA11410417FDEB80003B7E48 /* AirplaneBombTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA11410A17FDEB80003B7E48 /* AirplaneBombTests.m */,
+				DA11410517FDEB80003B7E48 /* Supporting Files */,
+			);
+			path = AirplaneBombTests;
+			sourceTree = "<group>";
+		};
+		DA11410517FDEB80003B7E48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA11410617FDEB80003B7E48 /* AirplaneBombTests-Info.plist */,
+				DA11410717FDEB80003B7E48 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA1140D417FDEB80003B7E48 /* AirplaneBomb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA11410E17FDEB80003B7E48 /* Build configuration list for PBXNativeTarget "AirplaneBomb" */;
+			buildPhases = (
+				DA1140D117FDEB80003B7E48 /* Sources */,
+				DA1140D217FDEB80003B7E48 /* Frameworks */,
+				DA1140D317FDEB80003B7E48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirplaneBomb;
+			productName = AirplaneBomb;
+			productReference = DA1140D517FDEB80003B7E48 /* AirplaneBomb.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA1140FC17FDEB80003B7E48 /* AirplaneBombTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA11411117FDEB80003B7E48 /* Build configuration list for PBXNativeTarget "AirplaneBombTests" */;
+			buildPhases = (
+				DA1140F917FDEB80003B7E48 /* Sources */,
+				DA1140FA17FDEB80003B7E48 /* Frameworks */,
+				DA1140FB17FDEB80003B7E48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA11410317FDEB80003B7E48 /* PBXTargetDependency */,
+			);
+			name = AirplaneBombTests;
+			productName = AirplaneBombTests;
+			productReference = DA1140FD17FDEB80003B7E48 /* AirplaneBombTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA1140CD17FDEB80003B7E48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GMS;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Green Mailbox Studios";
+				TargetAttributes = {
+					DA1140FC17FDEB80003B7E48 = {
+						TestTargetID = DA1140D417FDEB80003B7E48;
+					};
+				};
+			};
+			buildConfigurationList = DA1140D017FDEB80003B7E48 /* Build configuration list for PBXProject "AirplaneBomb" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA1140CC17FDEB80003B7E48;
+			productRefGroup = DA1140D617FDEB80003B7E48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA1140D417FDEB80003B7E48 /* AirplaneBomb */,
+				DA1140FC17FDEB80003B7E48 /* AirplaneBombTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA1140D317FDEB80003B7E48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA1140E517FDEB80003B7E48 /* InfoPlist.strings in Resources */,
+				DA1140F817FDEB80003B7E48 /* Images.xcassets in Resources */,
+				DA1140F617FDEB80003B7E48 /* Spaceship.png in Resources */,
+				DA1140EE17FDEB80003B7E48 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA1140FB17FDEB80003B7E48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA11410917FDEB80003B7E48 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA1140D117FDEB80003B7E48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA1140EB17FDEB80003B7E48 /* GMSAppDelegate.m in Sources */,
+				DA1140F117FDEB80003B7E48 /* GMSViewController.m in Sources */,
+				DA1140F417FDEB80003B7E48 /* GMSMyScene.m in Sources */,
+				DA1140E717FDEB80003B7E48 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA1140F917FDEB80003B7E48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA11410B17FDEB80003B7E48 /* AirplaneBombTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA11410317FDEB80003B7E48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA1140D417FDEB80003B7E48 /* AirplaneBomb */;
+			targetProxy = DA11410217FDEB80003B7E48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA1140E317FDEB80003B7E48 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA1140E417FDEB80003B7E48 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DA1140EC17FDEB80003B7E48 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA1140ED17FDEB80003B7E48 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA11410717FDEB80003B7E48 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA11410817FDEB80003B7E48 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA11410C17FDEB80003B7E48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		DA11410D17FDEB80003B7E48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA11410F17FDEB80003B7E48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirplaneBomb/AirplaneBomb-Prefix.pch";
+				INFOPLIST_FILE = "AirplaneBomb/AirplaneBomb-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DA11411017FDEB80003B7E48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirplaneBomb/AirplaneBomb-Prefix.pch";
+				INFOPLIST_FILE = "AirplaneBomb/AirplaneBomb-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DA11411217FDEB80003B7E48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AirplaneBomb.app/AirplaneBomb";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirplaneBomb/AirplaneBomb-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AirplaneBombTests/AirplaneBombTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		DA11411317FDEB80003B7E48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AirplaneBomb.app/AirplaneBomb";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirplaneBomb/AirplaneBomb-Prefix.pch";
+				INFOPLIST_FILE = "AirplaneBombTests/AirplaneBombTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA1140D017FDEB80003B7E48 /* Build configuration list for PBXProject "AirplaneBomb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA11410C17FDEB80003B7E48 /* Debug */,
+				DA11410D17FDEB80003B7E48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA11410E17FDEB80003B7E48 /* Build configuration list for PBXNativeTarget "AirplaneBomb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA11410F17FDEB80003B7E48 /* Debug */,
+				DA11411017FDEB80003B7E48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA11411117FDEB80003B7E48 /* Build configuration list for PBXNativeTarget "AirplaneBombTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA11411217FDEB80003B7E48 /* Debug */,
+				DA11411317FDEB80003B7E48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA1140CD17FDEB80003B7E48 /* Project object */;
+}
