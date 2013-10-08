@@ -7,7 +7,7 @@
 //
 
 #import "GMSViewController.h"
-#import "GMSMyScene.h"
+#import "GMSMainMenuScene.h"
 
 @implementation GMSViewController
 
@@ -21,7 +21,7 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [GMSMyScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [GMSMainMenuScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

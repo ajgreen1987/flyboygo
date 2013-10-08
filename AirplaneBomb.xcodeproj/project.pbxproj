@@ -16,14 +16,23 @@
 		DA1140EB17FDEB80003B7E48 /* GMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140EA17FDEB80003B7E48 /* GMSAppDelegate.m */; };
 		DA1140EE17FDEB80003B7E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1140EC17FDEB80003B7E48 /* Main.storyboard */; };
 		DA1140F117FDEB80003B7E48 /* GMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140F017FDEB80003B7E48 /* GMSViewController.m */; };
-		DA1140F417FDEB80003B7E48 /* GMSMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140F317FDEB80003B7E48 /* GMSMyScene.m */; };
-		DA1140F617FDEB80003B7E48 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1140F517FDEB80003B7E48 /* Spaceship.png */; };
+		DA1140F417FDEB80003B7E48 /* GMSGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1140F317FDEB80003B7E48 /* GMSGameScene.m */; };
 		DA1140F817FDEB80003B7E48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1140F717FDEB80003B7E48 /* Images.xcassets */; };
 		DA1140FF17FDEB80003B7E48 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140FE17FDEB80003B7E48 /* XCTest.framework */; };
 		DA11410017FDEB80003B7E48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140D817FDEB80003B7E48 /* Foundation.framework */; };
 		DA11410117FDEB80003B7E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1140DC17FDEB80003B7E48 /* UIKit.framework */; };
 		DA11410917FDEB80003B7E48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA11410717FDEB80003B7E48 /* InfoPlist.strings */; };
 		DA11410B17FDEB80003B7E48 /* AirplaneBombTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA11410A17FDEB80003B7E48 /* AirplaneBombTests.m */; };
+		DA11411717FDEE13003B7E48 /* GMSAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA11411617FDEE13003B7E48 /* GMSAppManager.m */; };
+		DA11411917FDEEE5003B7E48 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA11411817FDEEE5003B7E48 /* CoreMotion.framework */; };
+		DA11411D17FDF117003B7E48 /* trail.sks in Resources */ = {isa = PBXBuildFile; fileRef = DA11411B17FDF117003B7E48 /* trail.sks */; };
+		DA49E2EC17FE424C00E6B694 /* EXPLOSION.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DA49E2EB17FE424C00E6B694 /* EXPLOSION.atlas */; };
+		DA49E2EE17FE42FB00E6B694 /* Clouds.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DA49E2ED17FE42FB00E6B694 /* Clouds.atlas */; };
+		DA49E2F117FE468400E6B694 /* GMSMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA49E2F017FE468400E6B694 /* GMSMainMenuScene.m */; };
+		DA55C3011802FDBE00DB323B /* old_game.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA55C2FF1802FDBE00DB323B /* old_game.ttf */; };
+		DA55C3021802FDBE00DB323B /* snes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA55C3001802FDBE00DB323B /* snes.ttf */; };
+		DAA08EF7180048F800A204F7 /* GMSBaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA08EF6180048F800A204F7 /* GMSBaseScene.m */; };
+		DAFAF7D817FDF1E0001B042A /* SMOKE TRAIL.png in Resources */ = {isa = PBXBuildFile; fileRef = DAFAF7D717FDF1E0001B042A /* SMOKE TRAIL.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,15 +60,27 @@
 		DA1140ED17FDEB80003B7E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA1140EF17FDEB80003B7E48 /* GMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMSViewController.h; sourceTree = "<group>"; };
 		DA1140F017FDEB80003B7E48 /* GMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMSViewController.m; sourceTree = "<group>"; };
-		DA1140F217FDEB80003B7E48 /* GMSMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMSMyScene.h; sourceTree = "<group>"; };
-		DA1140F317FDEB80003B7E48 /* GMSMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMSMyScene.m; sourceTree = "<group>"; };
-		DA1140F517FDEB80003B7E48 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		DA1140F217FDEB80003B7E48 /* GMSGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMSGameScene.h; sourceTree = "<group>"; };
+		DA1140F317FDEB80003B7E48 /* GMSGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMSGameScene.m; sourceTree = "<group>"; };
 		DA1140F717FDEB80003B7E48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DA1140FD17FDEB80003B7E48 /* AirplaneBombTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirplaneBombTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1140FE17FDEB80003B7E48 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DA11410617FDEB80003B7E48 /* AirplaneBombTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirplaneBombTests-Info.plist"; sourceTree = "<group>"; };
 		DA11410817FDEB80003B7E48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DA11410A17FDEB80003B7E48 /* AirplaneBombTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirplaneBombTests.m; sourceTree = "<group>"; };
+		DA11411517FDEE13003B7E48 /* GMSAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSAppManager.h; sourceTree = "<group>"; };
+		DA11411617FDEE13003B7E48 /* GMSAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSAppManager.m; sourceTree = "<group>"; };
+		DA11411817FDEEE5003B7E48 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		DA11411B17FDF117003B7E48 /* trail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = trail.sks; sourceTree = "<group>"; };
+		DA49E2EB17FE424C00E6B694 /* EXPLOSION.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = EXPLOSION.atlas; sourceTree = "<group>"; };
+		DA49E2ED17FE42FB00E6B694 /* Clouds.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Clouds.atlas; sourceTree = "<group>"; };
+		DA49E2EF17FE468400E6B694 /* GMSMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSMainMenuScene.h; sourceTree = "<group>"; };
+		DA49E2F017FE468400E6B694 /* GMSMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSMainMenuScene.m; sourceTree = "<group>"; };
+		DA55C2FF1802FDBE00DB323B /* old_game.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = old_game.ttf; sourceTree = "<group>"; };
+		DA55C3001802FDBE00DB323B /* snes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snes.ttf; sourceTree = "<group>"; };
+		DAA08EF5180048F800A204F7 /* GMSBaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSBaseScene.h; sourceTree = "<group>"; };
+		DAA08EF6180048F800A204F7 /* GMSBaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSBaseScene.m; sourceTree = "<group>"; };
+		DAFAF7D717FDF1E0001B042A /* SMOKE TRAIL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SMOKE TRAIL.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA11411917FDEEE5003B7E48 /* CoreMotion.framework in Frameworks */,
 				DA1140DB17FDEB80003B7E48 /* CoreGraphics.framework in Frameworks */,
 				DA1140DD17FDEB80003B7E48 /* UIKit.framework in Frameworks */,
 				DA1140DF17FDEB80003B7E48 /* SpriteKit.framework in Frameworks */,
@@ -109,6 +131,7 @@
 		DA1140D717FDEB80003B7E48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA11411817FDEEE5003B7E48 /* CoreMotion.framework */,
 				DA1140D817FDEB80003B7E48 /* Foundation.framework */,
 				DA1140DA17FDEB80003B7E48 /* CoreGraphics.framework */,
 				DA1140DC17FDEB80003B7E48 /* UIKit.framework */,
@@ -121,16 +144,19 @@
 		DA1140E017FDEB80003B7E48 /* AirplaneBomb */ = {
 			isa = PBXGroup;
 			children = (
+				DA49E2F217FE469000E6B694 /* Scenes */,
+				DA11411417FDEDFD003B7E48 /* Managers */,
 				DA1140E917FDEB80003B7E48 /* GMSAppDelegate.h */,
 				DA1140EA17FDEB80003B7E48 /* GMSAppDelegate.m */,
 				DA1140EC17FDEB80003B7E48 /* Main.storyboard */,
 				DA1140EF17FDEB80003B7E48 /* GMSViewController.h */,
 				DA1140F017FDEB80003B7E48 /* GMSViewController.m */,
-				DA1140F217FDEB80003B7E48 /* GMSMyScene.h */,
-				DA1140F317FDEB80003B7E48 /* GMSMyScene.m */,
-				DA1140F517FDEB80003B7E48 /* Spaceship.png */,
 				DA1140F717FDEB80003B7E48 /* Images.xcassets */,
 				DA1140E117FDEB80003B7E48 /* Supporting Files */,
+				DA11411B17FDF117003B7E48 /* trail.sks */,
+				DAFAF7D717FDF1E0001B042A /* SMOKE TRAIL.png */,
+				DA55C2FF1802FDBE00DB323B /* old_game.ttf */,
+				DA55C3001802FDBE00DB323B /* snes.ttf */,
 			);
 			path = AirplaneBomb;
 			sourceTree = "<group>";
@@ -138,6 +164,8 @@
 		DA1140E117FDEB80003B7E48 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DA49E2ED17FE42FB00E6B694 /* Clouds.atlas */,
+				DA49E2EB17FE424C00E6B694 /* EXPLOSION.atlas */,
 				DA1140E217FDEB80003B7E48 /* AirplaneBomb-Info.plist */,
 				DA1140E317FDEB80003B7E48 /* InfoPlist.strings */,
 				DA1140E617FDEB80003B7E48 /* main.m */,
@@ -162,6 +190,28 @@
 				DA11410717FDEB80003B7E48 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA11411417FDEDFD003B7E48 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DA11411517FDEE13003B7E48 /* GMSAppManager.h */,
+				DA11411617FDEE13003B7E48 /* GMSAppManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		DA49E2F217FE469000E6B694 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DA1140F217FDEB80003B7E48 /* GMSGameScene.h */,
+				DA1140F317FDEB80003B7E48 /* GMSGameScene.m */,
+				DA49E2EF17FE468400E6B694 /* GMSMainMenuScene.h */,
+				DA49E2F017FE468400E6B694 /* GMSMainMenuScene.m */,
+				DAA08EF5180048F800A204F7 /* GMSBaseScene.h */,
+				DAA08EF6180048F800A204F7 /* GMSBaseScene.m */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,10 +291,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA55C3011802FDBE00DB323B /* old_game.ttf in Resources */,
+				DA11411D17FDF117003B7E48 /* trail.sks in Resources */,
 				DA1140E517FDEB80003B7E48 /* InfoPlist.strings in Resources */,
 				DA1140F817FDEB80003B7E48 /* Images.xcassets in Resources */,
-				DA1140F617FDEB80003B7E48 /* Spaceship.png in Resources */,
+				DA49E2EC17FE424C00E6B694 /* EXPLOSION.atlas in Resources */,
 				DA1140EE17FDEB80003B7E48 /* Main.storyboard in Resources */,
+				DA49E2EE17FE42FB00E6B694 /* Clouds.atlas in Resources */,
+				DAFAF7D817FDF1E0001B042A /* SMOKE TRAIL.png in Resources */,
+				DA55C3021802FDBE00DB323B /* snes.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,9 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA11411717FDEE13003B7E48 /* GMSAppManager.m in Sources */,
 				DA1140EB17FDEB80003B7E48 /* GMSAppDelegate.m in Sources */,
+				DA49E2F117FE468400E6B694 /* GMSMainMenuScene.m in Sources */,
 				DA1140F117FDEB80003B7E48 /* GMSViewController.m in Sources */,
-				DA1140F417FDEB80003B7E48 /* GMSMyScene.m in Sources */,
+				DAA08EF7180048F800A204F7 /* GMSBaseScene.m in Sources */,
+				DA1140F417FDEB80003B7E48 /* GMSGameScene.m in Sources */,
 				DA1140E717FDEB80003B7E48 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +458,7 @@
 				INFOPLIST_FILE = "AirplaneBomb/AirplaneBomb-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -414,6 +473,7 @@
 				INFOPLIST_FILE = "AirplaneBomb/AirplaneBomb-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -479,6 +539,7 @@
 				DA11411017FDEB80003B7E48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA11411117FDEB80003B7E48 /* Build configuration list for PBXNativeTarget "AirplaneBombTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +548,7 @@
 				DA11411317FDEB80003B7E48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
