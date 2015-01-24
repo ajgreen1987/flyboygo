@@ -13,7 +13,7 @@
 
 - (void) setupMenu;
 - (void) setupScrollingBackground;
-- (SKLabelNode *) menuItemWithText:(NSString*)text size:(CGFloat)size andFont:(NSString*)aFont;
+
 
 @end
 
@@ -72,10 +72,17 @@
 #pragma mark - Menu Setup
 - (void) setupMenu
 {
-    self.menuItems = @[@"New Game",@"Options",@"History of WWII"];
+    self.menuItems = @[@"New Game",@"History of WWII", @"About the Developer",@"Show Leaderboard"];
     
-    CGFloat startingOffset = 100.0f;
-    CGFloat offset = 25.0f;
+    SKLabelNode *gameTitle = [self menuItemWithText:GENERIC_TITLE
+                                               size:65.0f
+                                            andFont:[GMSAppManager gameFont]];
+    [gameTitle setPosition:CGPointMake(CGRectGetMidX(self.frame)+5,CGRectGetMidY(self.frame)+45.0f)];
+    
+    [self addChild:gameTitle];
+    
+    CGFloat startingOffset = 0.0f;
+    CGFloat offset = 35.0f;
     int counter = 0;
     
     // Print all font names to find your new one
@@ -83,23 +90,12 @@
     
     for (NSString *title in self.menuItems)
     {
-        SKLabelNode*  menuItem = [self menuItemWithText:self.menuItems[counter] size:25.0f andFont:[GMSAppManager gameFont]];
+        SKLabelNode*  menuItem = [self menuItemWithText:title size:35.0f andFont:[GMSAppManager gameFont]];
         [menuItem setPosition:CGPointMake(CGRectGetMidX(self.frame)+5,(CGRectGetMidY(self.frame)-startingOffset)-(counter * offset))];
 
         [self addChild:menuItem];
         counter += 1;
     }
-}
-
-- (SKLabelNode *) menuItemWithText:(NSString*)text size:(CGFloat)size andFont:(NSString*)aFont
-{
-    SKLabelNode*  toReturn = [SKLabelNode labelNodeWithFontNamed:aFont];
-    [toReturn setName:text];
-    [toReturn setText:text];
-    [toReturn setFontSize:size];
-    [toReturn setZPosition:4];
-    
-    return toReturn;
 }
 
 #pragma mark - 
@@ -112,19 +108,44 @@
     
     if ([node.name isEqualToString:self.menuItems[0]]) // New Game
     {
-        // Scene Transition Animation
-        SKTransition* reveal = [SKTransition revealWithDirection:SKTransitionDirectionUp duration:1.5];
-        GMSGameScene* gameScene = [GMSGameScene sceneWithSize:self.view.bounds.size];
-        [self.scene.view presentScene:gameScene transition:reveal];
+        [self startGame];
     }
-    else if([node.name isEqualToString:self.menuItems[1]]) // Options
+    else if([node.name isEqualToString:self.menuItems[1]]) // History
     {
-        // Scene Transition Animation
+        // Launch WWII Information
+        [self launchWWIIHistoryInBrowser];
     }
-    else // History
+    else if([node.name isEqualToString:self.menuItems[2]]) // GMB
+    {
+        [self launchGMBStudiosInBrowser];
+    }
+    else if([node.name isEqualToString:self.menuItems[3]]) //Leaderboard
     {
         
     }
+}
+
+- (void)startGame
+{
+    // Scene Transition Animation
+    SKTransition* reveal = [SKTransition revealWithDirection:SKTransitionDirectionUp duration:1.5];
+    GMSGameScene* gameScene = [GMSGameScene sceneWithSize:self.view.bounds.size];
+    [self.scene.view presentScene:gameScene transition:reveal];
+}
+
+- (void) launchWWIIHistoryInBrowser
+{
+    [self launchBrowserWithURL:WWII_WIKI_URL];
+}
+
+- (void) launchGMBStudiosInBrowser
+{
+    [self launchBrowserWithURL:GMBSTUDIOS_URL];
+}
+
+- (void) launchBrowserWithURL:(NSString*)aURL
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:aURL]];
 }
 
 #pragma mark -
@@ -142,5 +163,7 @@
         [_cloudsTextures addObject:texture];
     }
 }
+
+
 
 @end

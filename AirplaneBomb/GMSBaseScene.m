@@ -27,4 +27,15 @@
     }
 }
 
+- (SKLabelNode *) menuItemWithText:(NSString*)text size:(CGFloat)size andFont:(NSString*)aFont
+{
+    SKLabelNode*  toReturn = [SKLabelNode labelNodeWithFontNamed:aFont];
+    [toReturn setName:text];
+    [toReturn setText:text];
+    [toReturn setFontSize:size];
+    [toReturn setZPosition:4];
+    
+    return toReturn;
+}
+
 @end

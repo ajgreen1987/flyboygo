@@ -44,7 +44,18 @@
 
 + (NSString*) gameFont
 {
-    return @"Old-Game";
+    return @"HeadlinerNo.45";
 }
+
++ (void) setLeaderboardID:(NSString*)anID
+{
+    
+}
+
++ (NSString*) leaderboardID
+{
+    
+}
+
 
 @end

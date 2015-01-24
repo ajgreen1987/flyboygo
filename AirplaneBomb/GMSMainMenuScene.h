@@ -9,11 +9,6 @@
 #import "GMSBaseScene.h"
 
 @interface GMSMainMenuScene : GMSBaseScene
-{
-    CGRect screenRect;
-    CGFloat screenWidth;
-    CGFloat screenHeight;
-}
 
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) NSMutableArray *cloudsTextures;

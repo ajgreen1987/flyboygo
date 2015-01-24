@@ -7,6 +7,7 @@
 //
 
 #import "GMSBaseScene.h"
+#import "GMSMessageWindow.h"
 #import <CoreMotion/CoreMotion.h>
 
 
@@ -14,11 +15,8 @@ static const uint8_t bulletCategory = 1;
 static const uint8_t enemyCategory = 2;
 static const uint8_t playerCategory = 3;
 
-@interface GMSGameScene : GMSBaseScene <UIAccelerometerDelegate, SKPhysicsContactDelegate, UIAlertViewDelegate>
+@interface GMSGameScene : GMSBaseScene <UIAccelerometerDelegate, SKPhysicsContactDelegate, UIAlertViewDelegate, GMSMessageWindowDelegate>
 {
-    CGRect screenRect;
-    CGFloat screenWidth;
-    CGFloat screenHeight;
     double currentMaxAccelX;
     double currentMaxAccelY;
 }
@@ -31,5 +29,6 @@ static const uint8_t playerCategory = 3;
 @property (nonatomic, strong) NSMutableArray *explosionTextures;
 @property (nonatomic, strong) NSMutableArray *cloudsTextures;
 @property (nonatomic, assign) BOOL isPaused;
+@property (nonatomic, assign) BOOL isGameOver;
 
 @end

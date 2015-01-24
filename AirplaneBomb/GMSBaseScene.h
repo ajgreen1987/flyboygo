@@ -9,5 +9,12 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GMSBaseScene : SKScene
+{
+    CGRect screenRect;
+    CGFloat screenWidth;
+    CGFloat screenHeight;
+}
+
+- (SKLabelNode *) menuItemWithText:(NSString*)text size:(CGFloat)size andFont:(NSString*)aFont;
 
 @end

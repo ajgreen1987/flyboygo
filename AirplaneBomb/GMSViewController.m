@@ -9,6 +9,15 @@
 #import "GMSViewController.h"
 #import "GMSMainMenuScene.h"
 
+@interface GMSViewController ()
+
+@property (nonatomic, assign) BOOL isGameCenterEnabled;
+
+- (void) authenticateLocalPlayer;
+- (void) showHighScores;
+
+@end
+
 @implementation GMSViewController
 
 - (void)viewDidLoad
@@ -46,6 +55,59 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark - Game Center
+- (void) authenticateLocalPlayer
+{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    
+    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+        if (viewController != nil)
+        {
+            [self presentViewController:viewController animated:YES completion:nil];
+        }
+        else{
+            if ([GKLocalPlayer localPlayer].authenticated) {
+                self.isGameCenterEnabled = YES;
+                
+                // Get the default leaderboard identifier.
+                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
+                    
+                    if (error != nil)
+                    {
+                        NSLog(@"%@", [error localizedDescription]);
+                    }
+                    else
+                    {
+                        [[BGGApplicationManager sharedInstance] setLeaderboardID:leaderboardIdentifier];
+                    }
+                }];
+            }
+            
+            else{
+                self.isGameCenterEnabled = NO;
+            }
+        }
+    };
+}
+
+- (void) showHighScores
+{
+    
+    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+    
+    gcViewController.gameCenterDelegate = self;
+    
+    gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+    gcViewController.leaderboardIdentifier = [[BGGApplicationManager sharedInstance] leaderboardID];
+    
+    [self presentViewController:gcViewController animated:YES completion:nil];
+}
+
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

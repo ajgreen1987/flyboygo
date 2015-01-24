@@ -15,9 +15,6 @@
 #define END_POINT_IPHONE -300.0f
 #define ENEMY_FREQUENCY_LOW 1.1
 #define ENEMY_FREQUENCY_HIGH 1
-#define DIFFICULTY_LOW 7
-#define DIFFICULTY_MEDIUM 5
-#define DIFFICULTY_HIGH 3
 #define GROUND_LEVEL 0
 #define PLAYER_LEVEL 1
 #define CLOUD_LEVEL 2
@@ -27,10 +24,15 @@
 #define CLOUD_DENSITY_HIGH 1000
 #define CLOUD_DENSITY_BLINDING 2
 
+#define PAUSE_NAME @"pause"
+#define KILLS_NAME @"KILLZ"
+#define PLAYER_MINI @"MINI"
+
 @interface GMSGameScene ()
 
 @property (nonatomic, strong) SKAction *spinForever;
 @property (nonatomic, assign) NSInteger numberOfLives;
+@property (nonatomic, assign) int killCount;
 
 // Player
 - (NSInteger) numberOfLivesForDifficulty:(NSInteger)currentDifficulty;
@@ -45,12 +47,13 @@
 // Init
 - (void) loadSpriteAtlases;
 - (void) generatePause;
+- (void) generateKillCount;
 - (void) scheduleEnemyCreation;
 - (void) startDetectingMotion;
 
 - (void) moveToMainMenu;
--(void)outputAccelertionData:(CMAcceleration)acceleration;
--(int)getRandomNumberBetween:(int)from to:(int)to;
+-(void) outputAccelertionData:(CMAcceleration)acceleration;
+-(int)  getRandomNumberBetween:(int)from to:(int)to;
 
 @end
 
@@ -65,25 +68,43 @@
         screenHeight = screenRect.size.height;
         screenWidth = screenRect.size.width;
         
-        // setup physics, no gravity (whee!) and delegate
-        self.physicsWorld.gravity = CGVectorMake(0, 0);
-        self.physicsWorld.contactDelegate = self;
+        [self resetAndInitialize];
         
-        // adding the background
-        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"airPlanesBackground"];
-        background.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
-        [self addChild:background];
-        
-        self.numberOfLives = [self numberOfLivesForDifficulty:DIFFICULTY_LOW];
-        
-        [self loadSpriteAtlases];
-        [self generatePause];
-        [self generatePlayer];
-        [self scheduleEnemyCreation];
-        [self startDetectingMotion];
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark - Reset and Init
+- (void) resetAndInitialize
+{
+    // setup physics, no gravity (whee!) and delegate
+    self.physicsWorld.gravity = CGVectorMake(0, 0);
+    self.physicsWorld.contactDelegate = self;
+    
+    // adding the background
+    SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"airPlanesBackground"];
+    background.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
+    [self addChild:background];
+    
+    self.numberOfLives = [self numberOfLivesForDifficulty:DIFFICULTY_LOW];
+    
+    [self loadSpriteAtlases];
+    [self generatePause];
+    [self generateKillCount];
+    [self generatePlayer];
+    [self generatePlayerLivesLeftInHUD];
+    [self scheduleEnemyCreation];
+    [self startDetectingMotion];
+    
+    // Show message
+    [self displayMessage:@"Keep her together 'Flyboy'..."];
+    self.killCount = 0;
+    
+    self.isGameOver = NO;
+    self.isPaused = YES;
+    self.paused = YES;
 }
 
 #pragma mark -
@@ -114,8 +135,8 @@
 - (void) generatePause
 {
     // pause
-    SKSpriteNode *pause = [SKSpriteNode spriteNodeWithImageNamed:@"pause"];
-    pause.name = @"pause";
+    SKSpriteNode *pause = [SKSpriteNode spriteNodeWithImageNamed:PAUSE_NAME];
+    pause.name = PAUSE_NAME;
     pause.scale = [GMSAppManager isiPad] ? SCALE_IPAD : SCALE_IPHONE;
     pause.zPosition = HUD_LEVEL;
     pause.position = CGPointMake(screenWidth-(pause.frame.size.width/2.0f), (pause.frame.size.height/2.0f));
@@ -123,6 +144,17 @@
     
     self.isPaused = NO;
     
+}
+
+- (void) generateKillCount
+{
+    SKLabelNode *killCounter = [SKLabelNode labelNodeWithFontNamed:[GMSAppManager gameFont]];
+    
+    killCounter.fontSize = 25.0f;
+    killCounter.name = KILLS_NAME;
+    killCounter.zPosition = HUD_LEVEL;
+    killCounter.position = CGPointMake(50.0f, 50.0f);
+    [self addChild:killCounter];
 }
 
 - (void) scheduleEnemyCreation
@@ -162,7 +194,7 @@
     if ([node.name isEqualToString:@"pause"]) // New Game
     {
         self.isPaused = !self.isPaused;
-        self.view.paused = self.isPaused;
+        self.paused = self.isPaused;
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Paused"
                                                         message:@"Would you like to continue your flight?"
@@ -174,23 +206,26 @@
     }
     else
     {
-        /* Called when a touch begins */
-        CGPoint location = [self.plane position];
-        SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithImageNamed:@"B 2.png"];
-        
-        bullet.position = CGPointMake(location.x,location.y+self.plane.size.height/2);
-        bullet.zPosition = 1;
-        bullet.scale = 0.8;
-        bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bullet.size];
-        bullet.physicsBody.dynamic = NO;
-        bullet.physicsBody.categoryBitMask = bulletCategory;
-        bullet.physicsBody.contactTestBitMask = enemyCategory;
-        bullet.physicsBody.collisionBitMask = 0;
-        
-        SKAction *action = [SKAction moveToY:self.frame.size.height+bullet.size.height duration:2];
-        SKAction *remove = [SKAction removeFromParent];
-        [bullet runAction:[SKAction sequence:@[action,remove]]];
-        [self addChild:bullet];
+        if(!self.paused)
+        {
+            /* Called when a touch begins */
+            CGPoint location = [self.plane position];
+            SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithImageNamed:@"B 2.png"];
+            
+            bullet.position = CGPointMake(location.x,location.y+self.plane.size.height/2);
+            bullet.zPosition = 1;
+            bullet.scale = 0.8;
+            bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bullet.size];
+            bullet.physicsBody.dynamic = NO;
+            bullet.physicsBody.categoryBitMask = bulletCategory;
+            bullet.physicsBody.contactTestBitMask = enemyCategory;
+            bullet.physicsBody.collisionBitMask = 0;
+            
+            SKAction *action = [SKAction moveToY:self.frame.size.height+bullet.size.height duration:2];
+            SKAction *remove = [SKAction removeFromParent];
+            [bullet runAction:[SKAction sequence:@[action,remove]]];
+            [self addChild:bullet];
+        }
     }
     
 }
@@ -331,6 +366,8 @@
             SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.07];
             SKAction *remove = [SKAction removeFromParent];
             [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
+            
+            [self setKillCount:-1];
         }
     }
     
@@ -345,6 +382,9 @@
             [self.planeShadow runAction:playerDied];
             [self.smokeTrail runAction:playerDied];
             
+            SKSpriteNode *hudPlayer = (SKSpriteNode*)[self childNodeWithName:[NSString stringWithFormat:@"%@%li", PLAYER_MINI, (long)self.numberOfLives]];
+            [hudPlayer runAction:playerDied];
+            
             SKNode *enemy = (firstBody.categoryBitMask & playerCategory) ? firstBody.node : secondBody.node;
             [enemy runAction:playerDied];
             
@@ -358,20 +398,32 @@
             SKAction *remove = [SKAction removeFromParent];
             [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
             
-            if (self.numberOfLives >= [self numberOfLivesForDifficulty:DIFFICULTY_LOW])
+            
+            if (self.numberOfLives > 0)
             {
                 self.numberOfLives -= 1;
+                _killCount = -1;
+                [self setKillCount:-1];
                 
                 [NSTimer scheduledTimerWithTimeInterval:0.5f
-                                        target:self
-                                      selector:@selector(generatePlayer)
-                                      userInfo:nil
-                                       repeats:NO];
+                                                 target:self
+                                               selector:@selector(generatePlayer)
+                                               userInfo:nil
+                                                repeats:NO];
             }
             else
             {
-                // Game Over
-                [self moveToMainMenu];
+                self.isGameOver = YES;
+                self.isPaused = YES;
+                self.paused = self.isPaused;
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aggghhhrr..."
+                                                                message:@"Your failure was unprecedented!"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"I'm a Hero"
+                                                      otherButtonTitles:@"I'm a Coward", nil];
+                
+                [alert show];
             }
         }
     }
@@ -417,6 +469,25 @@
             return 3;
         default:
             return 1;
+    }
+}
+
+- (void) generatePlayerLivesLeftInHUD
+{
+    float xPosition = 25.0f;
+    float yPosition = 25.0f;
+    float spacing = 15.0f;
+    
+    for (int i=0; i<self.numberOfLives; i++)
+    {
+        SKSpriteNode *miniPlane = [SKSpriteNode spriteNodeWithImageNamed:@"PLANE 8 N.png"];
+        miniPlane.name = [NSString stringWithFormat:@"%@%i", PLAYER_MINI, i];
+        float scale = ([GMSAppManager isiPad] ? SCALE_IPAD : SCALE_IPHONE) * 0.5f;
+        miniPlane.scale = scale;
+        miniPlane.zPosition = HUD_LEVEL;
+        miniPlane.position = CGPointMake(xPosition + (spacing*i), yPosition);
+        
+        [self addChild:miniPlane];
     }
 }
 
@@ -490,12 +561,22 @@
 #pragma mark - Alert View Delegate
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    self.isPaused = !self.isPaused;
-    self.view.paused = self.isPaused;
     
     if (buttonIndex == 1)
     {
         [self moveToMainMenu];
+    }
+    else
+    {
+        if (self.isGameOver)
+        {
+            [self resetAndInitialize];
+        }
+        else
+        {
+            self.isPaused = !self.isPaused;
+            self.paused = self.isPaused;
+        }
     }
 }
 
@@ -511,10 +592,59 @@
 
 - (void) moveToMainMenu
 {
+     [self.motionManager stopAccelerometerUpdates];
+    
     // restart the game
     SKTransition* reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.5];
-    GMSMainMenuScene *mainMenuScene = [GMSMainMenuScene sceneWithSize:self.view.bounds.size];
-    [self.scene.view presentScene:mainMenuScene transition:reveal];
+    GMSMainMenuScene *mainMenuScene = [GMSMainMenuScene sceneWithSize:CGSizeMake(screenWidth, screenHeight)];
+    [self.view presentScene:mainMenuScene transition:reveal];
+}
+
+#pragma mark -
+#pragma mark - Message Window
+- (void) displayMessage:(NSString*)aMessage
+{
+    self.isPaused = YES;
+    self.paused = self.isPaused;
+    
+    GMSMessageWindow *newWindow = [GMSMessageWindow windowWithMessage:aMessage
+                                                                 font:[GMSAppManager gameFont]
+                                                             fontSize:25.0f
+                                                            fontColor:[UIColor whiteColor]
+                                                             duration:200000.0f
+                                                      backgroundImage:@"messageWindow"
+                                                             delegate:self];
+    
+    newWindow.position = CGPointMake(CGRectGetMidX(screenRect), CGRectGetMidY(screenRect));
+    
+    [self addChild:newWindow];
+}
+
+
+#pragma mark -
+#pragma mark - Message Window Delegate
+- (void) nextTouched
+{
+    GMSMessageWindow *window = (GMSMessageWindow*)[self childNodeWithName:MESSAGE_NAME];
+    self.isPaused = NO;
+    self.paused = self.isPaused;
+    [window runAction:[SKAction removeFromParent]
+           completion:^{
+               
+           }];
+}
+
+#pragma mark -
+#pragma mark - Overridden Properties
+- (void) setKillCount:(int)killCount
+{
+    if (!killCount == 0)
+    {
+        _killCount++;
+    }
+    
+    SKLabelNode *killCounter = (SKLabelNode*)[self childNodeWithName:KILLS_NAME];
+    [killCounter setText:[NSString stringWithFormat:@"Kill Count: %i", _killCount]];
 }
 
 @end
